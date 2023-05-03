@@ -4,24 +4,19 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id;
+    private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
-    #[ORM\Column(type: 'string', length: 180, unique: true)]
-    #[Assert\Length(min: 2, max: 180)]
-    private ?string $email;
+    private ?string $email = null;
 
     #[ORM\Column]
     private array $roles = [];
@@ -29,34 +24,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      */
-    #[ORM\Column(type: 'string')]
-    #[Assert\NotBlank()]
-    private ?string $password;
+    #[ORM\Column]
+    private ?string $password = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $nom ;
+    #[ORM\Column(length: 180)]
+    private ?string $nom = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $prenom;
+    #[ORM\Column(length: 180)]
+    private ?string $prenom = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $telephone;
+    private ?string $telephone = null;
 
-    #[ORM\Column(type: 'boolean')]
-    private $isVerified = false;
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    #[Assert\NotBlank()]
-    private ?\DateTimeImmutable $createdAt;
-
-    #[ORM\Column(type: 'datetime_immutable')]
-    #[Assert\NotBlank()]
-    private ?\DateTimeImmutable $updatedAt;
-
-    public function __toString()
-    {
-        return $this->email;
-    }
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     public function getId(): ?int
     {
@@ -183,18 +167,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
-
-    public function setIsVerified(bool $isVerified): self
-    {
-        $this->isVerified = $isVerified;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
@@ -212,10 +184,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
+
 }

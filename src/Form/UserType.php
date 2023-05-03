@@ -18,7 +18,8 @@ class UserType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('telephone')
-            ->add('isVerified')
+            ->add('createdAt')
+            ->add('updatedAt')
         ;
     }
 
