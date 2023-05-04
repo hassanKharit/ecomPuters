@@ -40,35 +40,37 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
-    public function show(User $user): Response
+    #[Route('/', name: 'app_user_show', methods: ['GET'])]
+    public function show(): Response
     {
+        $monuser=$this->getUser();
         return $this->render('user/show.html.twig', [
-            'user' => $user,
+            'user' => $monuser,
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, UserRepository $userRepository): Response
+    #[Route('/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, UserRepository $userRepository): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        $monuser=$this->getUser();
+        $form = $this->createForm(UserType::class, $monuser);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $userRepository->save($user, true);
+            $userRepository->save($monuser, true);
 
-            $user->setUpdatedAt(new \DateTimeImmutable());
+            // $user->setUpdatedAt(new \DateTimeImmutable());
 
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user/edit.html.twig', [
-            'user' => $user,
+            'user' => $monuser,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_admin_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
