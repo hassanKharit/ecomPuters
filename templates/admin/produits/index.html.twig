@@ -27,6 +27,9 @@
                 <td>
                     <a href="{{ path('app_admin_produits_show', {'id': produit.id}) }}">show</a>
                     <a href="{{ path('app_admin_produits_edit', {'id': produit.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_commentaires_new', {'id': produit.id}) }}">ajouter un commentaire</a>
+                     <a href="{{ path('app_admin_commentaires_show', {'id': produit.id}) }}">commentaire</a>
+
                 </td>
             </tr>
         {% else %}
@@ -38,4 +41,6 @@
     </table>
 
     <a href="{{ path('app_admin_produits_new') }}">Create new</a>
+
+
 {% endblock %}

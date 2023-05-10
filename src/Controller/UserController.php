@@ -29,9 +29,9 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $monuser->setUpdatedAt(new \DateTimeImmutable());
             $userRepository->save($monuser, true);
 
-            // $user->setUpdatedAt(new \DateTimeImmutable());
 
             return $this->redirectToRoute('app_user_profile_show', [], Response::HTTP_SEE_OTHER);
         }
@@ -42,3 +42,4 @@ class UserController extends AbstractController
         ]);
     }
 }
+

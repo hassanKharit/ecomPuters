@@ -51,9 +51,10 @@ class AdminProduitsController extends AbstractController
     #[Route('/edit/{id}', name: 'app_admin_produits_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Produits $produit, ProduitsRepository $produitsRepository): Response
     {
+        
+
         $form = $this->createForm(ProduitsType::class, $produit);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $produitsRepository->save($produit, true);
 

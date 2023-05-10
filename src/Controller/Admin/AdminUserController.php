@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use App\Form\AdminEditProfileType;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,24 +30,35 @@ class AdminUserController extends AbstractController
         ]);
     }
 
-    // #[Route('/modifier', name: 'app_user_profile_edit', methods: ['GET', 'POST'])]
-    // public function edit(Request $request, UserRepository $userRepository): Response
-    // {
-    //     $monuser=$this->getUser();
-    //     $form = $this->createForm(EditProfileType::class, $monuser);
-    //     $form->handleRequest($request);
+    #[Route('/profile/modifier/{id}', name: 'app_admin_profile_edit', methods: ['GET', 'POST'])]
+    public function edit(User $user,Request $request, UserRepository $userRepository): Response
+    {
+        
+        $form = $this->createForm(AdminEditProfileType::class, $user);
+        $form->handleRequest($request);
 
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $userRepository->save($monuser, true);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setUpdatedAt(new \DateTimeImmutable());
+            $userRepository->save($user, true);
 
-    //         // $user->setUpdatedAt(new \DateTimeImmutable());
 
-    //         return $this->redirectToRoute('app_user_profile_show', [], Response::HTTP_SEE_OTHER);
-    //     }
+            return $this->redirectToRoute('app_admin_profile_show', ['id' => $user->getId()], Response::HTTP_SEE_OTHER);
+        }
 
-    //     return $this->renderForm('user/edit.html.twig', [
-    //         'user' => $monuser,
-    //         'form' => $form,
-    //     ]);
-    // }
+        return $this->renderForm('user/edit.html.twig', [
+            'user' => $user,
+            'form' => $form,
+        ]);
+    }
+    #[Route('/{id}', name: 'app_admin_profile_delete', methods: ['POST'])]
+    public function delete(Request $request, User $user, UserRepository $userRepository): Response
+    {
+        // on verifie si le token de securité est bien présent
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+            // on utilise les metode du repository pour supprimer l'enregistrement en question
+            $userRepository->remove($user, true);
+        }
+        // on redirige vers la page des users
+        return $this->redirectToRoute('app_admin_profiles_index', [], Response::HTTP_SEE_OTHER);
+    }
 }
