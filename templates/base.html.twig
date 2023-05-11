@@ -63,23 +63,32 @@
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="{{path('app_produits_index')}}">produits</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Team</a>
+                    <a class="nav-link" href="{{path('app_categories_index')}}">categories</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Projects</a>
+                    <a class="nav-link" href="{{path('app_user_profile_show')}}">profile</a>
                     </li>
                       <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="{{path('app_contact')}}">contact</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Team</a>
+                    <a class="nav-link" href="{{path('app_register')}}">register</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Projects</a>
+                    <a class="nav-link" href="{{path('app_login')}}">login</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_logout')}}">logout</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_forgot_password_request')}}">password_request</a>
+                    </li>
+                    {# <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_forgot_password_request')}}">password_request</a>
+                    </li> #}
                 </ul>
                 <!-- Left links -->
                 </div>
@@ -143,22 +152,13 @@
                     aria-labelledby="navbarDropdownMenuAvatar"
                     >
                     <li>
-                        <a class="dropdown-item" href="#">My profile</a>
+                        <a class="dropdown-item" href="{{path('app_user_profile_show')}}">My profile</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="#">Settings</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">My profile</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Settings</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{{path('app_logout')}}">Logout</a>
                     </li>
                     </ul>
                 </div>
@@ -369,13 +369,14 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-home me-3"></i> Bondy 93140</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            info@example.com
+            contact@adei-france.com
           </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          <p><i class="fas fa-phone me-3"></i> + 0618622920</p>
+          <p><i class="fas fa-phone me-3"></i> + 0145622920</p>
+
         </div>
         <!-- Grid column -->
       </div>
