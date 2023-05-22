@@ -20,6 +20,8 @@
         rel="stylesheet"
         />
         
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- link css ajouté
+        
         
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -52,16 +54,34 @@
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                <!-- <a class="navbar-brand mt-2 mt-lg-0" href="#">
                     <img
-                    src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+                    src="../public/images/ecomputerLogo.png"
                     height="15"
-                    alt="MDB Logo"
+                    alt=""
                     loading="lazy"
                     />
-                </a>
+                </a> -->
                 <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-6 mb-lg-4">
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_home')}}"><img src="{{ asset('images/ecombg.png')}}" height="25" alt=""
+                      loading="lazy"></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_portable')}}">PC PORTABLE</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_bureau')}}">PC DE BUREAU</a>
+                    </li><li class="nav-item">
+                    <a class="nav-link" href="{{path('app_composants')}}">COMPOSANTS</a>
+                    </li><li class="nav-item">
+                    <a class="nav-link" href="{{path('app_accessoires')}}">ACCESSOIRES</a>
+                    </li><li class="nav-item">
+                    <a class="nav-link" href="{{path('app_promos')}}">LES PROMOS</a>
+                    </li><li class="nav-item">
+                    <a class="nav-link" href="{{path('app_atelier')}}">ATELIER</a>
+                    </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{path('app_produits_index')}}">produits</a>
                     </li>
@@ -215,51 +235,59 @@
     <a class="btn btn-primary" href="" role="button">Call to action</a>
   </div> #}
   <!-- Jumbotron -->
-  <div id="carouselExampleCrossfade" class="carousel slide carousel-fade" data-mdb-ride="carousel">
-  <div class="carousel-indicators">
-    <button
-      type="button"
-      data-mdb-target="#carouselExampleCrossfade"
-      data-mdb-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      type="button"
-      data-mdb-target="#carouselExampleCrossfade"
-      data-mdb-slide-to="1"
-      aria-label="Slide 2"
-    ></button>
-    <button
-      type="button"
-      data-mdb-target="#carouselExampleCrossfade"
-      data-mdb-slide-to="2"
-      aria-label="Slide 3"
-    ></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
-    </div>
-    <div class="carousel-item">
-      <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>
-    </div>
-    <div class="carousel-item">
-      <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</header>
-        
+  
+
+  {# <div id="carouselExampleCrossfade" class="carousel slide carousel-fade" data-mdb-ride="carousel"> #}
+        {% block carousel %}
+
+                <div id="carouselExampleCrossfade" class="carousel slide carousel-fade carousel-container" data-mdb-ride="carousel">
+                  <div class="carousel-indicators">
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleCrossfade"
+                      data-mdb-slide-to="0"
+                      class="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                    ></button>
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleCrossfade"
+                      data-mdb-slide-to="1"
+                      aria-label="Slide 2"
+                    ></button>
+                    <button
+                      type="button"
+                      data-mdb-target="#carouselExampleCrossfade"
+                      data-mdb-slide-to="2"
+                      aria-label="Slide 3"
+                    ></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                </header>
+
+
+                 {% endblock %}
+                        
         
 
 
@@ -314,11 +342,10 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Company name
+            <i class="fas fa-gem me-3"></i>ADEI ecomputer
           </h6>
           <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
+            Adei eComputer, votre partenaire informatique engagé pour des solutions durables et respectueuses de l'environnement.
           </p>
         </div>
         <!-- Grid column -->
@@ -327,19 +354,25 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Products
+            PRODUITS
           </h6>
           <p>
-            <a href="#!" class="text-reset">Angular</a>
+            <a href="#!" class="text-reset">Ordinateurs portables</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">React</a>
+            <a href="#!" class="text-reset">Nouveaux produits</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Vue</a>
+            <a href="#!" class="text-reset">Promotions</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Laravel</a>
+            <a href="#!" class="text-reset">Accessoires informatiques</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Composants PC</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Périphériques de gaming</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -348,19 +381,19 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
+            VOS DEMANDES
           </h6>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+            <a href="#!" class="text-reset">SAV</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
+            <a href="#!" class="text-reset">Commandes</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Orders</a>
+            <a href="#!" class="text-reset">Bons de reduction</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Help</a>
+            <a href="#!" class="text-reset">Avoirs</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -387,8 +420,8 @@
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2017 Copyright:
+    <a class="text-reset fw-bold" href="{{ asset('images/ecomputerLogo.png')}}">adei.fr</a>
   </div>
   <!-- Copyright -->
 </footer>

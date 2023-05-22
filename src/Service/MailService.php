@@ -5,8 +5,6 @@ namespace App\Service;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\MailerInterface;
 
-
-
 class MailService
 {
     private $mailer;
@@ -16,19 +14,14 @@ class MailService
         $this->mailer = $mailerInterface;
     }
 
-    public function sendMail($email, $message)
+    public function sendMail($email, $subject, $htmlContent, $textContent)
     {
-
         $email = (new Email())
             ->from($email)
-            ->to($email)
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('Time for Symfony Mailer!')
-            ->text($message)
-            ->html($message);
+            ->to('log@adei-france.fr')
+            ->subject($subject)
+            ->text($textContent)
+            ->html($htmlContent);
 
         $this->mailer->send($email);
     }

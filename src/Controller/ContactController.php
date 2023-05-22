@@ -35,23 +35,23 @@ class ContactController extends AbstractController
             $manager->persist($contact);
             $manager->flush();
 
-            $email = (new TemplatedEmail())
-            ->from($contact->getEmail())
-            ->to('log@adei-france.fr')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject($contact->getSubject())
-                  // chemin du template de la twig à la vue(view)
-            ->htmlTemplate('emails/contact.html.twig')
+            // $email = (new TemplatedEmail())
+            // ->from($contact->getEmail())
+            // ->to('log@adei-france.fr')
+            // //->cc('cc@example.com')
+            // //->bcc('bcc@example.com')
+            // //->replyTo('fabien@example.com')
+            // //->priority(Email::PRIORITY_HIGH)
+            // ->subject($contact->getSubject())
+            //       // chemin du template de la twig à la vue(view)
+            // ->htmlTemplate('emails/contact.html.twig')
                   
-                  // passer la variable (nom => valeur) au template
-                  ->context([
-                      'contact' => $contact,
-                  ]);
+            //       // passer la variable (nom => valeur) au template
+            //       ->context([
+            //           'contact' => $contact,
+            //       ]);
 
-              $mailer->send($email);
+            //   $mailer->send($email);
 
                   $this->addFlash(
                       'succes',
