@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\CommandesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CommandesRepository;
 
 #[ORM\Entity(repositoryClass: CommandesRepository::class)]
 class Commandes
