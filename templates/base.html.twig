@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -19,9 +19,28 @@
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         rel="stylesheet"
         />
-        
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+        </style>
+
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- link css ajouté
-        
+
+
+
         
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -31,164 +50,127 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
     </head>
 
-    <!-- Navbar -->
-            {% block nav %} 
+        <!-- Navbar -->
+        {% block nav %}
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!-- Container wrapper -->
-            <div class="container-fluid">
-                <!-- Toggle button -->
-                <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                >
-                <i class="fas fa-bars"></i>
-                </button>
+                <!-- Container wrapper -->
+                <div class="container-fluid">
+                    <!-- Toggle button -->
+                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
 
-                <!-- Collapsible wrapper -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Navbar brand -->
-                <!-- <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img
-                    src="../public/images/ecomputerLogo.png"
-                    height="15"
-                    alt=""
-                    loading="lazy"
-                    />
-                </a> -->
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-6 mb-lg-4">
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_home')}}"><img src="{{ asset('images/ecombg.png')}}" height="25" alt=""
-                      loading="lazy"></a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_portable')}}">PC PORTABLE</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_bureau')}}">PC DE BUREAU</a>
-                    </li><li class="nav-item">
-                    <a class="nav-link" href="{{path('app_composants')}}">COMPOSANTS</a>
-                    </li><li class="nav-item">
-                    <a class="nav-link" href="{{path('app_accessoires')}}">ACCESSOIRES</a>
-                    </li><li class="nav-item">
-                    <a class="nav-link" href="{{path('app_promos')}}">LES PROMOS</a>
-                    </li><li class="nav-item">
-                    <a class="nav-link" href="{{path('app_atelier')}}">ATELIER</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_produits_index')}}">produits</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_categories_index')}}">categories</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_user_profile_show')}}">profile</a>
-                    </li>
-                      <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_contact')}}">contact</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_register')}}">register</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_login')}}">login</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_logout')}}">logout</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_forgot_password_request')}}">password_request</a>
-                    </li>
-                    {# <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_forgot_password_request')}}">password_request</a>
-                    </li> #}
-                </ul>
-                <!-- Left links -->
-                </div>
-                <!-- Collapsible wrapper -->
+                    <!-- Collapsible wrapper -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left links -->
+                        <ul class="navbar-nav me-auto mb-6 mb-lg-4">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_home') }}">
+                                    <img src="{{ asset('images/ecombg.png') }}" height="25" alt="" loading="lazy">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_portable') }}">PC PORTABLE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_bureau') }}">PC DE BUREAU</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_composants') }}">COMPOSANTS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_accessoires') }}">ACCESSOIRES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_promos') }}">LES PROMOS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_atelier') }}">ATELIER</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_produits_index') }}">produits</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_categories_index') }}">categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_user_profile_show') }}">profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_contact') }}">contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_register') }}">enregistrement</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_login') }}">login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_logout') }}">logout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_forgot_password_request') }}">password_request</a>
+                            </li>
+                            {# <li class="nav-item">
+                <a class="nav-link" href="{{path('app_forgot_password_request')}}">password_request</a>
+                </li> #}
+                        </ul>
+                        <!-- Left links -->
+                    </div>
+                    <!-- Collapsible wrapper -->
 
-                <!-- Right elements -->
-                <div class="d-flex align-items-center">
-                <!-- Icon -->
-                <a class="text-reset me-3" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
+                    <!-- Right elements -->
+                    <div class="d-flex align-items-center">
+                        <!-- Icon -->
+                        <a class="text-reset me-3" href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
 
-                <!-- Notifications -->
-                <div class="dropdown">
-                    <a
-                    class="text-reset me-3 dropdown-toggle hidden-arrow"
-                    href="#"
-                    id="navbarDropdownMenuLink"
-                    role="button"
-                    data-mdb-toggle="dropdown"
-                    aria-expanded="false"
-                    >
-                    <i class="fas fa-bell"></i>
-                    <span class="badge rounded-pill badge-notification bg-danger">10</span>
-                    </a>
-                    <ul
-                    class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuLink"
-                    >
-                    <li>
-                        <a class="dropdown-item" href="#">Some news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Another news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </li>
-                    </ul>
+                        <!-- Notifications -->
+                        <div class="dropdown">
+                            <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge rounded-pill badge-notification bg-danger">10</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                    <a class="dropdown-item" href="#">Some news</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Another news</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Avatar -->
+                        <div class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('app_user_profile_show') }}">Mon profile</a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Right elements -->
                 </div>
-                <!-- Avatar -->
-                <div class="dropdown">
-                    <a
-                    class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                    href="#"
-                    id="navbarDropdownMenuAvatar"
-                    role="button"
-                    data-mdb-toggle="dropdown"
-                    aria-expanded="false"
-                    >
-                    <img
-                        src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                        class="rounded-circle"
-                        height="25"
-                        alt="Black and White Portrait of a Man"
-                        loading="lazy"
-                    />
-                    </a>
-                    <ul
-                    class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuAvatar"
-                    >
-                    <li>
-                        <a class="dropdown-item" href="{{path('app_user_profile_show')}}">My profile</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Settings</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{{path('app_logout')}}">Logout</a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-                <!-- Right elements -->
-            </div>
-            <!-- Container wrapper -->
+                <!-- Container wrapper -->
             </nav>
             <!-- Navbar -->
-            {% endblock %}
+        {% endblock %}
+
 
     <body>
         {% block body %}{% endblock %}
@@ -238,55 +220,87 @@
   
 
   {# <div id="carouselExampleCrossfade" class="carousel slide carousel-fade" data-mdb-ride="carousel"> #}
-        {% block carousel %}
 
+            {% block carousel %}
                 <div id="carouselExampleCrossfade" class="carousel slide carousel-fade carousel-container" data-mdb-ride="carousel">
-                  <div class="carousel-indicators">
-                    <button
-                      type="button"
-                      data-mdb-target="#carouselExampleCrossfade"
-                      data-mdb-slide-to="0"
-                      class="active"
-                      aria-current="true"
-                      aria-label="Slide 1"
-                    ></button>
-                    <button
-                      type="button"
-                      data-mdb-target="#carouselExampleCrossfade"
-                      data-mdb-slide-to="1"
-                      aria-label="Slide 2"
-                    ></button>
-                    <button
-                      type="button"
-                      data-mdb-target="#carouselExampleCrossfade"
-                      data-mdb-slide-to="2"
-                      aria-label="Slide 3"
-                    ></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>
+                    <div class="carousel-indicators">
+                        <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-item">
-                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits" />
+                        </div>
                     </div>
-                    <div class="carousel-item">
-                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+                    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                </header>
+            {% endblock %}
 
 
-                 {% endblock %}
+
+            {# {% block carousel %}#}
+
+{#                <div id="carouselExampleCrossfade" class="carousel slide carousel-fade carousel-container" data-mdb-ride="carousel">#}
+{#                  <div class="carousel-indicators">#}
+{#                    <button#}
+{#                      type="button"#}
+{#                      data-mdb-target="#carouselExampleCrossfade"#}
+{#                      data-mdb-slide-to="0"#}
+{#                      class="active"#}
+{#                      aria-current="true"#}
+{#                      aria-label="Slide 1"#}
+{#                    ></button>#}
+{#                    <button#}
+{#                      type="button"#}
+{#                      data-mdb-target="#carouselExampleCrossfade"#}
+{#                      data-mdb-slide-to="1"#}
+{#                      aria-label="Slide 2"#}
+{#                    ></button>#}
+{#                    <button#}
+{#                      type="button"#}
+{#                      data-mdb-target="#carouselExampleCrossfade"#}
+{#                      data-mdb-slide-to="2"#}
+{#                      aria-label="Slide 3"#}
+{#                    ></button>#}
+{#                  </div>#}
+{#                  <div class="carousel-inner">#}
+{#                    <div class="carousel-item active">#}
+{#                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape"/>#}
+{#                    </div>#}
+{#                    <div class="carousel-item">#}
+{#                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera"/>#}
+{#                    </div>#}
+{#                    <div class="carousel-item">#}
+{#                      <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits"/>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="prev">#}
+{#                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+{#                    <span class="visually-hidden">Previous</span>#}
+{#                  </button>#}
+{#                  <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide="next">#}
+{#                    <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+{#                    <span class="visually-hidden">Next</span>#}
+{#                  </button>#}
+{#                </div>#}
+{#                </header>#}
+
+
+{#                 {% endblock %}#}
                         
         
 
@@ -299,131 +313,260 @@
     </body>
 
     <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
-    </div>
-    <!-- Left -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>Restez connecté avec nous sur les réseaux sociaux :</span>
+            </div>
+            <!-- Left -->
 
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
 
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>ADEI ecomputer
-          </h6>
-          <p>
-            Adei eComputer, votre partenaire informatique engagé pour des solutions durables et respectueuses de l'environnement.
-          </p>
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>ADEI ecomputer
+                        </h6>
+                        <p>
+                            Adei eComputer, votre partenaire informatique engagé pour des solutions durables et respectueuses de l'environnement.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            PRODUITS
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Ordinateurs portables</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Nouveaux produits</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Promotions</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Accessoires informatiques</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Composants PC</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Périphériques de gaming</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            VOS DEMANDES
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">SAV</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Commandes</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Bons de réduction</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Avoirs</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p><i class="fas fa-home me-3"></i> Bondy 93140</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            contact@adei-france.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> +0618622920</p>
+                        <p><i class="fas fa-phone me-3"></i> +0145622920</p>
+
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2017 Tous droits réservés :
+            <a class="text-reset fw-bold" href="{{ asset('images/ecomputerLogo.png') }}">adei.fr</a>
         </div>
-        <!-- Grid column -->
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            PRODUITS
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Ordinateurs portables</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Nouveaux produits</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Promotions</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Accessoires informatiques</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Composants PC</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Périphériques de gaming</a>
-          </p>
-        </div>
-        <!-- Grid column -->
+    {#    <!-- Footer -->#}
+{#<footer class="text-center text-lg-start bg-light text-muted">#}
+{#  <!-- Section: Social media -->#}
+{#  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">#}
+{#    <!-- Left -->#}
+{#    <div class="me-5 d-none d-lg-block">#}
+{#      <span>Get connected with us on social networks:</span>#}
+{#    </div>#}
+{#    <!-- Left -->#}
 
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            VOS DEMANDES
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">SAV</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Commandes</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Bons de reduction</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Avoirs</a>
-          </p>
-        </div>
-        <!-- Grid column -->
+{#    <!-- Right -->#}
+{#    <div>#}
+{#      <a href="" class="me-4 text-reset">#}
+{#        <i class="fab fa-facebook-f"></i>#}
+{#      </a>#}
+{#      <a href="" class="me-4 text-reset">#}
+{#        <i class="fab fa-twitter"></i>#}
+{#      </a>#}
+{#      <a href="" class="me-4 text-reset">#}
+{#        <i class="fab fa-google"></i>#}
+{#      </a>#}
+{#      <a href="" class="me-4 text-reset">#}
+{#        <i class="fab fa-instagram"></i>#}
+{#      </a>#}
+{#      <a href="" class="me-4 text-reset">#}
+{#        <i class="fab fa-linkedin"></i>#}
+{#      </a>#}
+{#      <a href="" class="me-4 text-reset">#}
+{#        <i class="fab fa-github"></i>#}
+{#      </a>#}
+{#    </div>#}
+{#    <!-- Right -->#}
+{#  </section>#}
+{#  <!-- Section: Social media -->#}
 
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> Bondy 93140</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            contact@adei-france.com
-          </p>
-          <p><i class="fas fa-phone me-3"></i> + 0618622920</p>
-          <p><i class="fas fa-phone me-3"></i> + 0145622920</p>
+{#  <!-- Section: Links  -->#}
+{#  <section class="">#}
+{#    <div class="container text-center text-md-start mt-5">#}
+{#      <!-- Grid row -->#}
+{#      <div class="row mt-3">#}
+{#        <!-- Grid column -->#}
+{#        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">#}
+{#          <!-- Content -->#}
+{#          <h6 class="text-uppercase fw-bold mb-4">#}
+{#            <i class="fas fa-gem me-3"></i>ADEI ecomputer#}
+{#          </h6>#}
+{#          <p>#}
+{#            Adei eComputer, votre partenaire informatique engagé pour des solutions durables et respectueuses de l'environnement.#}
+{#          </p>#}
+{#        </div>#}
+{#        <!-- Grid column -->#}
 
-        </div>
-        <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
+{#        <!-- Grid column -->#}
+{#        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">#}
+{#          <!-- Links -->#}
+{#          <h6 class="text-uppercase fw-bold mb-4">#}
+{#            PRODUITS#}
+{#          </h6>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Ordinateurs portables</a>#}
+{#          </p>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Nouveaux produits</a>#}
+{#          </p>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Promotions</a>#}
+{#          </p>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Accessoires informatiques</a>#}
+{#          </p>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Composants PC</a>#}
+{#          </p>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Périphériques de gaming</a>#}
+{#          </p>#}
+{#        </div>#}
+{#        <!-- Grid column -->#}
 
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2017 Copyright:
-    <a class="text-reset fw-bold" href="{{ asset('images/ecomputerLogo.png')}}">adei.fr</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+{#        <!-- Grid column -->#}
+{#        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">#}
+{#          <!-- Links -->#}
+{#          <h6 class="text-uppercase fw-bold mb-4">#}
+{#            VOS DEMANDES#}
+{#          </h6>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">SAV</a>#}
+{#          </p>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Commandes</a>#}
+{#          </p>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Bons de reduction</a>#}
+{#          </p>#}
+{#          <p>#}
+{#            <a href="#!" class="text-reset">Avoirs</a>#}
+{#          </p>#}
+{#        </div>#}
+{#        <!-- Grid column -->#}
+
+{#        <!-- Grid column -->#}
+{#        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">#}
+{#          <!-- Links -->#}
+{#          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>#}
+{#          <p><i class="fas fa-home me-3"></i> Bondy 93140</p>#}
+{#          <p>#}
+{#            <i class="fas fa-envelope me-3"></i>#}
+{#            contact@adei-france.com#}
+{#          </p>#}
+{#          <p><i class="fas fa-phone me-3"></i> + 0618622920</p>#}
+{#          <p><i class="fas fa-phone me-3"></i> + 0145622920</p>#}
+
+{#        </div>#}
+{#        <!-- Grid column -->#}
+{#      </div>#}
+{#      <!-- Grid row -->#}
+{#    </div>#}
+{#  </section>#}
+{#  <!-- Section: Links  -->#}
+
+{#  <!-- Copyright -->#}
+{#  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">#}
+{#    © 2017 Copyright:#}
+{#    <a class="text-reset fw-bold" href="{{ asset('images/ecomputerLogo.png')}}">adei.fr</a>#}
+{#  </div>#}
+{#  <!-- Copyright -->#}
+{#</footer>#}
+{#<!-- Footer -->#}
 </html>
