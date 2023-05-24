@@ -11,6 +11,7 @@
             <tr>
                 
                 <th>Titre</th>
+                <th>image</th>
                 <th>Description</th>
                 <th>Prix</th>
                 <th>actions</th>
@@ -19,8 +20,9 @@
         <tbody>
         {% for produit in produits %}
             <tr>
-                <td>{{ produit.id }}</td>
                 <td>{{ produit.titre }}</td>
+                <td><img src="{{ asset('img/') ~ produit.imagename}}" class="card-img-top" alt="..." style="height: 100px; width: 100px;">
+                <div class="card-body"></td>
                 <td>{{ produit.description }}</td>
                 <td>{{ produit.prix }}</td>
                 <td>{{ produit.imagename }}</td>

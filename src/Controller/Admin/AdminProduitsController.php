@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Produits;
 use App\Form\ProduitsType;
 use App\Repository\ProduitsRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,13 +23,27 @@ class AdminProduitsController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_produits_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ProduitsRepository $produitsRepository): Response
+    public function new(Request $request, ProduitsRepository $produitsRepository, FileUploader $fileUploader): Response
     {
         $produit = new Produits();
         $form = $this->createForm(ProduitsType::class, $produit);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // on recupere l'image issue du formulaire
+            // "image" est le nom de notre image dans le form
+            $imageproduit = $form->get('imagename')->getData();
+            // dd($imageproduit);
+            
+            // le cas ou l'image a été posté
+            if ($imageproduit) {
+                // on utilise le service fileUploader
+                // pour envoyé l'image dans le public/img
+                $imageproduit_nom = $fileUploader->upload($imageproduit);
+                
+                // envoyé dans l'entité le nom de l'image
+                $produit->setImagename($imageproduit_nom);
+            }
             $produitsRepository->save($produit, true);
 
             return $this->redirectToRoute('app_admin_produits_index', [], Response::HTTP_SEE_OTHER);
@@ -49,13 +64,27 @@ class AdminProduitsController extends AbstractController
     }
 
     #[Route('/edit/{id}', name: 'app_admin_produits_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Produits $produit, ProduitsRepository $produitsRepository): Response
+    public function edit(Request $request, Produits $produit, ProduitsRepository $produitsRepository, FileUploader $fileUploader): Response
     {
         
 
         $form = $this->createForm(ProduitsType::class, $produit);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            // on recupere l'image issue du formulaire
+            // "image" est le nom de notre image dans le form
+            $imageproduit = $form->get('imagename')->getData();
+            // dd($imageproduit);
+            
+            // le cas ou l'image a été posté
+            if ($imageproduit) {
+                // on utilise le service fileUploader
+                // pour envoyé l'image dans le public/img
+                $imageproduit_nom = $fileUploader->upload($imageproduit);
+                
+                // envoyé dans l'entité le nom de l'image
+                $produit->setImagename($imageproduit_nom);
+            }
             $produitsRepository->save($produit, true);
 
             return $this->redirectToRoute('app_admin_produits_index', [], Response::HTTP_SEE_OTHER);

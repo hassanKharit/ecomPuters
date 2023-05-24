@@ -20,6 +20,24 @@
                 <td>{{ category.desription }}</td>
             </tr>
         </tbody>
+         {% for produit in category.produits %}
+            <tr>
+                <td>{{ produit.titre }}</td>
+                <td><img src="{{ asset('img/') ~ produit.imagename}}" class="card-img-top" alt="..." style="height: 100px; width: 100px;">
+                <div class="card-body"></td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.imagename }}</td>
+                <td>
+                    <a href="{{ path('app_produits_show', {'id': produit.id}) }}">show</a>
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
     </table>
 
     <a href="{{ path('app_categories_index') }}">back to list</a>

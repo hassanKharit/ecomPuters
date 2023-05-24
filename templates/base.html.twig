@@ -68,20 +68,9 @@
                     <a class="nav-link" href="{{path('app_home')}}"><img src="{{ asset('images/ecombg.png')}}" height="25" alt=""
                       loading="lazy"></a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_portable')}}">PC PORTABLE</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_bureau')}}">PC DE BUREAU</a>
-                    </li><li class="nav-item">
-                    <a class="nav-link" href="{{path('app_composants')}}">COMPOSANTS</a>
-                    </li><li class="nav-item">
-                    <a class="nav-link" href="{{path('app_accessoires')}}">ACCESSOIRES</a>
-                    </li><li class="nav-item">
-                    <a class="nav-link" href="{{path('app_promos')}}">LES PROMOS</a>
-                    </li><li class="nav-item">
-                    <a class="nav-link" href="{{path('app_atelier')}}">ATELIER</a>
-                    </li>
+                  
+                    
+                 
                     <li class="nav-item">
                     <a class="nav-link" href="{{path('app_produits_index')}}">produits</a>
                     </li>
@@ -101,6 +90,9 @@
                     <a class="nav-link" href="{{path('app_login')}}">login</a>
                     </li>
                     <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_admin_categories_index')}}">loginAdmin</a>
+                    </li>
+                    <li class="nav-item">
                     <a class="nav-link" href="{{path('app_logout')}}">logout</a>
                     </li>
                     <li class="nav-item">
@@ -117,7 +109,7 @@
                 <!-- Right elements -->
                 <div class="d-flex align-items-center">
                 <!-- Icon -->
-                <a class="text-reset me-3" href="#">
+                <a class="text-reset me-3" href="{{path('app_cart_show')}}">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
 
@@ -132,7 +124,7 @@
                     aria-expanded="false"
                     >
                     <i class="fas fa-bell"></i>
-                    <span class="badge rounded-pill badge-notification bg-danger">10</span>
+                    <span class="badge rounded-pill badge-notification bg-danger">2</span>
                     </a>
                     <ul
                     class="dropdown-menu dropdown-menu-end"
