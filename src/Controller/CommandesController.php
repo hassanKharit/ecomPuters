@@ -2,23 +2,24 @@
 
 namespace App\Controller;
 
-use App\Entity\Commandes;
+use DateTime;
+use Stripe\Stripe;
 use App\Entity\Facture;
-use App\Repository\CommandesRepository;
+use App\Entity\Commandes;
+use App\Service\CartService;
 use App\Repository\FactureRepository;
 use App\Repository\ProduitsRepository;
-use App\Service\CartService;
-use DateTime;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RequestStack;
+use App\Repository\CommandesRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/profile')]
 
 class CommandesController extends AbstractController
 {
-    #[Route('/commandes/succes', name: 'app_commandes_succes')]
+    #[Route('/commande/success', name: 'app_commandes_succes')]
     public function succes(FactureRepository $factureRepository, RequestStack $session, 
     ProduitsRepository $produitsRepository, CommandesRepository $commandesRepository, 
     CartService $cartService): Response
@@ -35,7 +36,7 @@ class CommandesController extends AbstractController
         // on va lui affecté la propriété correspondant à la date en cours
         // avec un datatime
         $facture->setDatecrea(new DateTime());
-
+        
 
 
         // on utilise le repo de la facture pour enregistrer
@@ -183,7 +184,7 @@ class CommandesController extends AbstractController
         //3. Supprimer la session
   
         
-        return $this->render('commande/index.html.twig', [
+        return $this->render('commandes/index.html.twig', [
             'controller_name' => 'CommandeController',
             'id_session'=>$checkout_session->id
         ]);

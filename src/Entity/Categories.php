@@ -20,7 +20,7 @@ class Categories
     private ?string $titre = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $desription = null;
+    private ?string $description = null;
 
     #[ORM\ManyToMany(targetEntity: Produits::class, mappedBy: 'categorie')]
     private Collection $produits;
@@ -52,14 +52,14 @@ class Categories
         return $this;
     }
 
-    public function getDesription(): ?string
+    public function getDescription(): ?string
     {
-        return $this->desription;
+        return $this->description;
     }
 
-    public function setDesription(string $desription): self
+    public function setDescription(string $description): self
     {
-        $this->desription = $desription;
+        $this->description = $description;
 
         return $this;
     }

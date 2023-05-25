@@ -27,4 +27,16 @@ class CategoriesController extends AbstractController
             'category' => $category,
         ]);
     }
+
+    // #[Route('/menu-burger', name: 'app_categories_menu_burger')]
+    // public function menuBurger(): Response
+    // {
+    //     $categories = $this->getDoctrine()->getRepository(Categories::class)->findAll();
+
+    //     return $this->render('categories/menu_burger.html.twig', [
+    //         'categories' => $categories,
+    //     ]);
+    // }
+
+
 }
