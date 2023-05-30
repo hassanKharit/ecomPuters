@@ -6,70 +6,70 @@
 <h1>details produits</h1>
 
 
-<table class="table">
-    <tbody>
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <tbody>
         <tr>
-            <th>id</th>
-            <td>{{produit.id }}</td>
+          <th>id</th>
+          <td>{{ produit.id }}</td>
         </tr>
         <tr>
-            <th>titre</th>
-            <td>{{produit.titre }}</td>
+          <th>titre</th>
+          <td>{{ produit.titre }}</td>
         </tr>
         <tr>
-            <th>Description</th>
-            <td>{{ produit.description }}</td>
+          <th>Description</th>
+          <td>{{ produit.description }}</td>
         </tr>
         <tr>
-            <th>Prix</th>
-            <td>{{ produit.prix }}</td>
+          <th>Prix</th>
+          <td>{{ produit.prix }}</td>
         </tr>
-
-
-
-    </tbody>
-    <a href="{{ path('app_cart_add', {'id': produit.id }) }}"><button type="button" class="btn btn-primary">Ajouter au
-            panier</button></a>
-</table>
+      </tbody>
+    </table>
+    <a href="{{ path('app_cart_add', {'id': produit.id }) }}">
+      <button type="button" class="btn btn-primary">Ajouter au panier</button>
+    </a>
+  </div>
+</div>
 
 <h1>Commentaires</h1>
 {% for uncommentaire in les_commentaires %}
-<table class="table">
+  <table class="table">
     <tbody>
-        <tr>
-            <th>Id</th>
-            <td> {{uncommentaire.id}}</td>
-        </tr>
-        <tr>
-            <th>Titre</th>
-            <td> {{uncommentaire.titre}}</td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td> {{uncommentaire.description}}</td>
-        </tr>
-        <tr>
-            <th>Ecrit par</th>
-            <td> {{uncommentaire.user.nom}} {{uncommentaire.user.prenom}}</td>
-        </tr>
-        <tr>
-            <th>createdAt</th>
-            <td> {{uncommentaire.createdAt ? uncommentaire.createdAt|date('d-m-Y H:i:s') : '' }}</td>
-        </tr>
+      <tr>
+        <th>Id</th>
+        <td>{{ uncommentaire.id }}</td>
+      </tr>
+      <tr>
+        <th>Titre</th>
+        <td>{{ uncommentaire.titre }}</td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>{{ uncommentaire.description }}</td>
+      </tr>
+      <tr>
+        <th>Ecrit par</th>
+        <td>{{ uncommentaire.user.nom }} {{ uncommentaire.user.prenom }}</td>
+      </tr>
+      <tr>
+        <th>createdAt</th>
+        <td>{{ uncommentaire.createdAt ? uncommentaire.createdAt|date('d-m-Y H:i:s') : '' }}</td>
+      </tr>
     </tbody>
-</table>
-
+  </table>
 {% endfor %}
+
 {% if is_granted('ROLE_USER') %}
-<h1>Ajouter un commentaire</h1>
-
-{{ form_start(form) }}
-{{ form_widget(form) }}
-<button class="btn">
+  <h1>Ajouter un commentaire</h1>
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
+  <button class="btn">
     {{ button_label|default('Enregistrer le commentaire') }}
-</button>
-{{ form_end(form) }}
-
-
+  </button>
+  {{ form_end(form) }}
 {% endif %}
+
 {% endblock %}

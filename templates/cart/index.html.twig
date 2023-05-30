@@ -5,63 +5,54 @@
 {% block body %}
 <h1>Mon panier</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id_produit</th>
-            <th>image</th>
-            <th>titre</th>
-            <th>description</th>
-            <th>prix</th>
-            <th>Quantite</th>
-            <th>Total</th>
-            <th>Suprrimer</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for monpanier in panier %}
-        <tr>
-            <td>{{ monpanier.Produits.id }}</td>
-            <td><img src="{{ asset('img/') ~ monpanier.Produits.imagename }}" class="w-25"></td>
-            <td>{{ monpanier.Produits.titre }}</td>
-            <td>{{ monpanier.Produits.description }}</td>
-            <td>{{ monpanier.Produits.prix }}€</td>
-            <td>
-                <a href="{{ path('app_cart_removequantite', {'id': monpanier.Produits.id}) }}">
-                    <i class="fa fa-minus" aria-hidden="true"></i>
-                </a>
-                {{ monpanier.quantite }}
-                <a href="{{ path('app_cart_add', {'id': monpanier.Produits.id}) }}">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                </a>
-            </td>
-            <td>
-                {{ monpanier.total }}€
-            </td>
-            <td>
-                <a href="{{ path('app_cart_remove', {'id': monpanier.Produits.id}) }}">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-            </td>
-        </tr>
-        {% else %}
-        <tr>
-            <td colspan="4">no records found</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class= container "text-center">
+  <ul class="list-group">
+    {% for monpanier in panier %}
+    <li class="list-group-item">
+      <div class="row align-items-center">
+        <div class="col-md-3">
+          <img src="{{ asset('img/') ~ monpanier.Produits.imagename }}" class="img-thumbnail" alt="...">
+        </div>
+        <div class="col-md-6">
+          <h5>{{ monpanier.Produits.titre }}</h5>
+          <p>{{ monpanier.Produits.description }}</p>
+          <p>Prix : {{ monpanier.Produits.prix }}€</p>
+        </div>
+        <div class="col-md-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="{{ path('app_cart_removequantite', {'id': monpanier.Produits.id}) }}" class="btn btn-sm btn-outline-secondary">
+                <i class="fa fa-minus" aria-hidden="true"></i>
+              </a>
+              <span class="btn btn-sm disabled">{{ monpanier.quantite }}</span>
+              <a href="{{ path('app_cart_add', {'id': monpanier.Produits.id}) }}" class="btn btn-sm btn-outline-secondary">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </a>
+            </div>
+            <span class="text-muted">{{ monpanier.total }}€</span>
+          </div>
+          <a href="{{ path('app_cart_remove', {'id': monpanier.Produits.id}) }}" class="btn btn-sm btn-danger mt-2">
+            Supprimer
+          </a>
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="list-group-item text-center">Aucun produit dans le panier.</li>
+    {% endfor %}
+  </ul>
+
+  <h2 class="mt-4">Montant Total : {{ totalcomplet }}€</h2>
+  <a href="{{ path('app_commande') }}" class="btn btn-primary mt-3">
+    COMMANDEZ
+  </a>
+
+  <a href="{{ path('app_cart_clear') }}" class="btn btn-secondary mt-3">
+    Vider le panier
+  </a>
+</div>
 
 
-    <h2>Montant Total : {{ totalcomplet }}€ </h2>
-    <a href="{{ path('app_commande')}}">
-        <h2>COMMANDEZ</h2>
-        </a>
 
-        <a href="{{ path('app_cart_clear') }}">
-        Vider le panier
-        </a>
+            
 {% endblock %}
-{% block javascripts %}
-            <script src="https://use.fontawesome.com/c33ed44af2.js"></script>
-        {% endblock %}
