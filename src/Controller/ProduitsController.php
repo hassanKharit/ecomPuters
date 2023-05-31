@@ -50,4 +50,26 @@ class ProduitsController extends AbstractController
         ]);
     }
 
+    public function search(Request $request, Produits $produits)
+    {
+        $form = $this->createForm(ProduitsSearchType::class);
+        $form->handleRequest($request);
+
+        $produits = [];
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $searchTerm = $data['search'];
+
+            $produits = $this->getDoctrine()
+                ->getRepository(Produits::class)
+                ->findBySearchTerm($searchTerm);
+        }
+
+        return $this->render('article/search.html.twig', [
+            'form' => $form->createView(),
+            'produit' => $Produits,
+        ]);
+    }
+
 }
