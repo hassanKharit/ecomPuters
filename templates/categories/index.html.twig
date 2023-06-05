@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello CaterogiesController!{% endblock %}
-
 {% block body %}
-    <h1>Categories index</h1>
+    
+<h1>Categories</h1>
 
  <div class="container">
   <div class="row">
     {% for category in categories %}
-    <div class="col-md-4">
+
+    <div class="anim col-md-4">
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title">{{ category.titre }}</h5>
@@ -28,7 +29,9 @@
     {% endfor %}
   </div>
 </div>
+<p>bonjour</p>
 
 
+{% block javascripts %} <script src="{{ asset('js/adminCat.js') }}"></script> {% endblock %}
 
 {% endblock %}

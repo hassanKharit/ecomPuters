@@ -2,15 +2,23 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>demande de : {{contact.nom}} {{contact.prenom}} </h1>
-
-    <p>Email : {{contact.email}}</p>
-    <p>Subject : {{contact.subject}}</p>
-    <p>Message :</p>
-        <div>
-            {{contact.message|raw}}
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Demande de : {{ contact.nom }} {{ contact.prenom }}</h1>
+                <p class="card-text">Email : {{ contact.email }}</p>
+                <p class="card-text">Subject : {{ contact.subject }}</p>
+                <p class="card-text">Message :</p>
+                <div class="card-text">
+                    {{ contact.message|raw }}
+                </div>
+            </div>
         </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
