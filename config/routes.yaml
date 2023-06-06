@@ -11,3 +11,8 @@ admin_dashboard:
   path: /admin/dashboard
   controller: App\Controller\AdminController::dashboard
 
+search:
+  path: /search
+  controller: App\Controller\SearchController::index
+  methods: GET
+

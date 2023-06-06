@@ -10,19 +10,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SearchController extends AbstractController
 {
-    #[Route('/search', name: 'app_search')]
-    public function index(Request $request, CommentairesRepository $ar): Response {
+    #[Route('/search', name: 'app_search', methods: ['GET'])]
+    public function index(Request $request, CommentairesRepository $commentairesRepository): Response
+    {
+        $searchTerm = $request->query->get('search');
+        $results = [];
 
-        $recherche = $request->query->get('search');
-
-        if (!empty($recherche)) {
-            $resultats = $ar->chercherCommentaire($recherche);
-        } else {
-            $resultats = $ar->findAll();
+        if ($searchTerm) {
+            // Effectuer la recherche dans le repository en utilisant la méthode chercherCommentaire()
+            $results = $commentairesRepository->chercherCommentaire($searchTerm);
         }
 
-        return $this->render('affichage', [
-            'resultats' => $resultats
+        return $this->render('search/index.html.twig', [
+            'results' => $results,
+            'searchTerm' => $searchTerm,
         ]);
     }
 }
