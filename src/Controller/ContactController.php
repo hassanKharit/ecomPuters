@@ -40,7 +40,7 @@ class ContactController extends AbstractController
 
             $mailService->sendMail(
                 $contact->getEmail(),
-                'log@adei-france.fr',
+                'contacts@adei-france.fr',
                 $contact->getSubject(),
                 'contact',
                 $context
