@@ -12,6 +12,7 @@
 </head>
 <body>
 
+
   <!-- This is a reverse engineering of the "Hyperspace"
      design from HTML5 Up! https://html5up.net/hyperspace -->
 
@@ -19,6 +20,14 @@
   <aside class="sidebar">
     <nav class="nav">
       <ul>
+                <li>
+                {% if is_granted('ROLE_USER') %}
+                  <a class="dropdown-item" href="{{path('app_forgot_password_request')}}">Modifier le mot de passe</a>
+                  {% endif %}
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
+                </li>
         <li class="active"><a href="{{path('app_admin_profiles_index')}}">Utilisateurs</a></li>
         <li class="active"><a href="{{path('app_admin_produits_index')}}">Produits</a></li>
         <li><a href="#">What We Do</a></li>

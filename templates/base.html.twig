@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="{{ asset('css/form.css') }}">
   <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
   <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/contacts.css') }}">
+
 
 
 
@@ -84,10 +86,11 @@
             <!-- Left links -->
 
             <!-- Search form -->
-            <form class="d-flex mx-2">
-              <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+           <form class="d-flex mx-2">
+              <input class="form-control me-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
               <button class="btn btn-outline-primary" type="submit">Rechercher</button>
-            </form>
+          </form>
+
             <!-- Search form -->
           </div>
           <!-- Collapsible wrapper -->
@@ -377,6 +380,8 @@
 
  <script src="{{asset('js/cardHome.js')}}"></script>
  <script src="{{asset('js/register.js')}}"></script>
+ <script src="{{asset('js/contacts.js')}}"></script>
+
 
 </body>
 </html>
