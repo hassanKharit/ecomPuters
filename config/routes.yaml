@@ -6,3 +6,8 @@
 # app_categories_menu_burger:
 #     path: /categories/menu-burger
 #     controller: App\Controller\CategoriesController::menuBurger
+
+admin_dashboard:
+  path: /admin/dashboard
+  controller: App\Controller\AdminController::dashboard
+
