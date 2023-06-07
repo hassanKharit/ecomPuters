@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+<h1>Résultats de la recherche</h1>
+
+{# <form action="{{ path('app_search') }}" method="GET" class="d-flex mx-2">
+    <input class="form-control me-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
+    <button class="btn btn-outline-primary" type="submit">Rechercher</button>
+</form> #}
+
+{% if resultats %}
+    <h2>Résultats</h2>
+    <ul>
+        {% for result in resultats %}
+            <li>{{ result }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucun résultat trouvé.</p>
+{% endif %}
+{% endblock %}

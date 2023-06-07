@@ -3,6 +3,7 @@ twig:
     form_themes: ['bootstrap_5_layout.html.twig']
     globals:
         cats: '@App\Twig\CatsExtension'
+        search: '@App\Twig\SearchExtension'
 
 
 when@test:

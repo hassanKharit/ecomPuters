@@ -50,25 +50,18 @@ class ProduitsController extends AbstractController
         ]);
     }
 
-    public function search(Request $request, Produits $produits)
-    {
-        $form = $this->createForm(ProduitsSearchType::class);
-        $form->handleRequest($request);
+    #[Route('//search', name: 'app_search',  methods: ['GET'])]
+    public function search(Request $request, ProduitsRepository $produitsRepository): Response {
 
-        $produits = [];
+        $recherche = $request->query->get('search');
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            $searchTerm = $data['search'];
-
-            $produits = $this->getDoctrine()
-                ->getRepository(Produits::class)
-                ->findBySearchTerm($searchTerm);
+        if (!empty($recherche)) {
+            $resultats = $produitsRepository->chercherProduits($recherche);
+        } else {
+            $resultats = $produitsRepository->findAll();
         }
-
-        return $this->render('article/search.html.twig', [
-            'form' => $form->createView(),
-            'produit' => $Produits,
+        return $this->render('search/index.html.twig', [
+            'resultats' => $resultats,
         ]);
     }
 
