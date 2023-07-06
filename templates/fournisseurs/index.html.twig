@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fournisseurs{% endblock %}
+
+{% block body %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+
+                
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <article>
+        <img width="48" height="48" src="https://img.icons8.com/color/48/hp.png" class="card-img-top" alt="hp"/>
+          <h1 class="text-center">Nos Fournisseurs</h1>
+          <p>
+            Chez ADEI, nous attachons une grande importance à la qualité et à la fiabilité du matériel que nous fournissons à nos clients. C'est pourquoi nous avons sélectionné avec soin les meilleurs fournisseurs de matériel informatique du marché. Voici quelques-unes des marques de confiance que nous recommandons pour les ordinateurs de bureau, les ordinateurs portables, les périphériques et les accessoires :
+          </p>
+          <ul>
+            <li>HP : Leader du marché de l'informatique, HP offre une large gamme de produits, des ordinateurs portables et de bureau aux imprimantes et aux accessoires.</li>
+            <li>Dell : Cette entreprise est réputée pour la qualité de ses ordinateurs portables et de bureau professionnels, ainsi que pour son excellent service client.</li>
+            <li>Lenovo : Cette marque est connue pour sa fiabilité et sa qualité de construction. Lenovo propose des ordinateurs portables et de bureau haut de gamme, ainsi que des accessoires.</li>
+            <li>Microsoft : Cette entreprise est connue pour ses appareils Surface, ses logiciels et ses accessoires, ainsi que pour son système d'exploitation Windows.</li>
+            <li>Asus : Cette entreprise taïwanaise est réputée pour ses ordinateurs portables et de bureau de qualité supérieure, ainsi que pour ses cartes mères et ses cartes graphiques.</li>
+          </ul>
+          <p>
+            Chez ADEI, nous sommes fiers de proposer à nos clients une large sélection de produits de qualité supérieure provenant de ces marques et d'autres fournisseurs de confiance. Nous sommes également en mesure de vous aider à trouver les produits les mieux adaptés à vos besoins, en fonction de votre budget et de vos exigences en matière de performance et de fonctionnalités.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}

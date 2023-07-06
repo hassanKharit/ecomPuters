@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 body {
   font-family: "Roboto", sans-serif;
@@ -6,17 +6,24 @@ body {
   padding: 20px;
 }
 
+.bg-nav {
+  background: #eff5e7; 
+}
+
 /* Styles pour la première nav avec la classe "logo" */
 .logo {
-  background-color: #eff5e7;
+  background-color: #ccc;
+
+  background-color: #eff5e7; 
   padding: 10px;
   margin: 0px;
-}
+ } 
+
 
 /* Styles pour la deuxième nav avec la classe "category" */
 .category {
-  /* background-color: #eff5e7; */
-  /* padding: 10px; */
+  background-color: #eff5e7;
+  padding: 10px;
   margin: 0px;
   margin-bottom: 20px;
 
@@ -31,7 +38,7 @@ body {
 
 /* Styles pour les liens dans la deuxième nav */
 .nav-link {
-    background: #eff5e7
+  background: #eff5e7;
   color: #708d50;
   margin-right: 10px;
 }

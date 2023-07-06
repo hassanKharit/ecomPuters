@@ -55,6 +55,7 @@ class CartService {
         // je boucle sur la cle et la valeur
         // du panier
         // clé de 7 sa valeur est la quantité
+        if (!empty($panier)){
          foreach ($panier as $key => $value){
             $Produits_encours= $this->ProduitsRepository->find($key);
 
@@ -67,6 +68,7 @@ class CartService {
                 // accumule la variable total avec chacun des prix
              
         }
+    }
 
         return $panier_complet; 
 
@@ -76,6 +78,7 @@ class CartService {
         // on recupere le panier en session
         $panier=$this->session->getSession()->get("panier");
         $total=0;
+        if (!empty($panier)){
         foreach ($panier as $key => $value  ){
             // total accumule précedent + prix du Produits en cours * quantité
             $total=  $total + ($this->ProduitsRepository->find($key)->getPrix()*$value);
@@ -84,6 +87,7 @@ class CartService {
                 // accumule la variable total avec chacun des prix
              
         }
+    }
         return $total;
 
     }

@@ -1,0 +1,23 @@
+<configuration>
+    ...
+    <system.web>
+        ...
+        <customErrors mode="On" redirectMode="ResponseRewrite" defaultRedirect="~/Error/500.htm">
+            <error statusCode="404" redirect="~/Error/404.htm" />
+            <error statusCode="500" redirect="~/Error/500.htm" />
+        </customErrors>
+        ...
+    </system.web>
+    ...
+    <system.webServer>
+        ...
+        <httpErrors errorMode="Custom">
+            <remove statusCode="404" />
+            <error statusCode="404" path="/Error/404.htm" responseMode="ExecuteURL" prefixLanguageFilePath="" />
+            <remove statusCode="500" />
+            <error statusCode="500" path="/Error/500.htm" responseMode="ExecuteURL" prefixLanguageFilePath="" />
+        </httpErrors>
+        ...
+     </system.webServer>
+     ...
+</configuration>

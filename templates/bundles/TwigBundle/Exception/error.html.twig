@@ -1,0 +1,7 @@
+  <system.webServer>
+    <httpErrors errorMode="Custom"  existingResponse="Replace">
+      <remove statusCode="404"/>
+      <!--<error statusCode="404" responseMode="File" path="\Error\404.htm"/>-->
+      <error statusCode="404" responseMode="ExecuteURL" path="http://example.com/Error/404.htm"/>
+    </httpErrors>
+  </system.webServer>

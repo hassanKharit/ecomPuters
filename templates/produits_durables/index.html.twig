@@ -3,34 +3,65 @@
 {% block title %} Produits Durables {% endblock %}
 
 {% block body %}
-   <h1>Produits durables</h1>
 
-  <p>Les produits durables jouent un rôle essentiel dans la préservation de notre environnement et dans la construction d'un avenir 
-plus respectueux de la planète. Les consommateurs sont de plus en plus conscients de l'importance d'opter pour des produits 
-durables qui offrent une alternative plus responsable sur le plan écologique.
+  {% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/article.css') }}">
+	{% endblock %}
 
-Les produits durables sont conçus pour durer plus longtemps, réduisant ainsi la nécessité de les remplacer fréquemment. 
-Ils sont fabriqués avec des matériaux de qualité, résistants et respectueux de l'environnement. En privilégiant ces produits, 
-nous réduisons la quantité de déchets générés et limitons notre empreinte carbone.
+  
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+  <style>
+    .card {
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
 
-Ces produits sont également souvent fabriqués dans le respect de normes éthiques et sociales, en veillant à ce que les 
-travailleurs soient traités de manière équitable et que les conditions de travail soient sûres et dignes. En optant pour 
-des produits durables, nous contribuons à soutenir une économie plus juste et responsable.
+    .card-header {
+      padding: 20px;
+      background-color: #ffcc00;
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+    }
 
-L'avantage des produits durables réside également dans leur impact sur notre santé. En évitant les produits contenant des 
-substances nocives ou des composants chimiques dangereux, nous préservons notre bien-être et celui de notre environnement. 
-Les produits durables favorisent une consommation plus saine et plus sûre, en accord avec nos valeurs écologiques.
+    .card-content {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+  </style>
+  <title>Article Produits durables</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center mt-12">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">
+            Produits durables
+          </div>
+          <div class="card-content">
+            <p>Les produits durables jouent un rôle essentiel dans la préservation de notre environnement et dans la construction d'un avenir plus respectueux de la planète. Les consommateurs sont de plus en plus conscients de l'importance d'opter pour des produits durables qui offrent une alternative plus responsable sur le plan écologique.</p>
+            <p>Les produits durables sont conçus pour durer plus longtemps, réduisant ainsi la nécessité de les remplacer fréquemment. Ils sont fabriqués avec des matériaux de qualité, résistants et respectueux de l'environnement. En privilégiant ces produits, nous réduisons la quantité de déchets générés et limitons notre empreinte carbone.</p>
+            <p>Ces produits sont également souvent fabriqués dans le respect de normes éthiques et sociales, en veillant à ce que les travailleurs soient traités de manière équitable et que les conditions de travail soient sûres et dignes. En optant pour des produits durables, nous contribuons à soutenir une économie plus juste et responsable.</p>
+            <p>L'avantage des produits durables réside également dans leur impact sur notre santé. En évitant les produits contenant des substances nocives ou des composants chimiques dangereux, nous préservons notre bien-être et celui de notre environnement. Les produits durables favorisent une consommation plus saine et plus sûre, en accord avec nos valeurs écologiques.</p>
+            <p>En choisissant des produits durables, nous participons activement à la transition vers une société plus respectueuse de l'environnement. Nous encourageons les entreprises à repenser leurs pratiques de production, à adopter des matériaux et des processus durables, et à se soucier de l'impact global de leurs produits sur la planète.</p>
+            <p>Que ce soit dans le domaine de la mode, de l'électronique, de l'alimentation ou d'autres secteurs, les produits durables offrent une alternative consciente et responsable. En optant pour ces produits, nous devenons des consommateurs engagés qui contribuent à la préservation des ressources naturelles et à la réduction des déchets.</p>
+            <p>En somme, les produits durables sont une solution viable pour un mode de vie plus respectueux de l'environnement. En choisissant ces produits, nous avons la possibilité de faire une réelle différence et de préserver notre planète pour les générations futures.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
 
-En choisissant des produits durables, nous participons activement à la transition vers une société plus respectueuse de 
-l'environnement. Nous encourageons les entreprises à repenser leurs pratiques de production, à adopter des matériaux et des 
-processus durables, et à se soucier de l'impact global de leurs produits sur la planète.
-
-Que ce soit dans le domaine de la mode, de l'électronique, de l'alimentation ou d'autres secteurs, les produits durables 
-offrent une alternative consciente et responsable. En optant pour ces produits, nous devenons des consommateurs engagés qui 
-contribuent à la préservation des ressources naturelles et à la réduction des déchets.
-
-En somme, les produits durables sont une solution viable pour un mode de vie plus respectueux de l'environnement. 
-En choisissant ces produits, nous avons la possibilité de faire une réelle différence et de préserver notre planète pour 
-les générations futures.</p>
 
 {% endblock %}
