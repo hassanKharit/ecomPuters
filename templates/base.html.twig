@@ -139,7 +139,9 @@
                   {% endif %}
                 </li>
                 <li>
+                  {% if is_granted('ROLE_USER') %}
                   <a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
+                  {% endif %}
                 </li>
               </ul>
             </div>

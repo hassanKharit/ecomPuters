@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 body {
   font-family: "Roboto", sans-serif;
@@ -7,26 +7,26 @@ body {
 }
 
 .bg-nav {
-  background: #eff5e7; 
+  /* background: #eff5e7;  */
 }
 
 /* Styles pour la première nav avec la classe "logo" */
 .logo {
   background-color: #ccc;
 
-  /* background-color: #eff5e7; */
+  background-color: #eff5e7;
   padding: 10px;
   margin: 0px;
-}
+} 
 
 /* Styles pour la deuxième nav avec la classe "category" */
-.category {
-  /* background-color: #eff5e7; */
-  /* padding: 10px; */
+ .category {
+  background-color: #eff5e7;
+  padding: 10px;
   margin: 0px;
   margin-bottom: 20px;
 
-}
+} 
 
 /* Styles pour les liens dans la première nav */
 .nav-link {
@@ -82,4 +82,4 @@ body {
 /* Styles pour le logo */
 .navbar-brand img {
   height: 30px;
-}
+} 

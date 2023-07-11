@@ -29,6 +29,12 @@
     line-height: 1.5;
     color: #1c79eb;
   }
+
+  .text-muted {
+    color: #d12629;
+    font-size: 16px;
+    font-style: italic;
+  }
   
   .btn {
     display: inline-block;
