@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous Contact{% endblock %}
+
+{% block body %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <article class="article">
+                <h1>Nous contacter</h1>
+                <h2>Restons en contact</h2>
+
+                <p>
+                    Si vous avez des questions, des commentaires ou des préoccupations, n'hésitez pas à nous contacter.
+                    Nous sommes là pour vous aider et nous nous efforçons de répondre rapidement à toutes les demandes.
+                </p>
+
+                <p>
+                    Vous pouvez nous joindre par téléphone, par courrier électronique ou en utilisant le formulaire de
+                    contact ci-dessous. Nous sommes impatients de vous entendre et de vous fournir l'assistance dont vous
+                    avez besoin.
+                </p>
+
+                <p>
+                    <strong>Téléphone :</strong> +XX-XXXX-XXXX
+                </p>
+
+                <p>
+                    <strong>Email :</strong> contact@example.com
+                </p>
+
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nom :</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message :</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </article>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

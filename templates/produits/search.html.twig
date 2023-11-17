@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block javascripts %}{% endblock %}
+
+
+{% block body %}
+<h1>Résultats de la recherche</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-4">
+                <div class="card-header">Résultats de la recherche</div>
+                <div class="card-body">
+                    <form action="{{ path('app_search') }}" method="GET" class="d-flex mb-3">
+                        <input class="form-control me-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
+                        <button class="btn btn-primary" type="submit">Rechercher</button>
+                    </form>
+
+                    {% if search %}
+                        <h2>Résultats</h2>
+                        <ul class="list-group">
+                            {% for search in resultats %}
+                                <li class="list-group-item">
+                                    <a href="{{ path('app_produits_show', { 'id': search.id }) }}">{{ search.titre }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Aucun résultat trouvé.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+   
+            {# {% if search %}
+                <h2>Résultats</h2>
+                <ul>
+                    {% for search in resultats %}
+                        <li>{{ search.titre }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Aucun résultat trouvé.</p>
+            {% endif %}  #}
+         
+
+

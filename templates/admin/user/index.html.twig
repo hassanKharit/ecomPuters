@@ -1,0 +1,68 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>User index</h1>
+
+   <div class="container">
+    {% for message in app.flashes('message') %}
+    <div class="col-xs-4">
+        <div class="p-3 my-2 rounded-2 success">{{ message }}</div>
+    </div>
+    {% endfor %}
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                        <th>Profile vérifié</th>
+                        <th>Password</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Téléphone</th>
+                        <th>CreatedAt</th>
+                        <th>UpdatedAt</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        <td>{{ user.isVerified ? user.isVerified|json_encode : '' }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.nom }}</td>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.telephone }}</td>
+                        <td>{{ user.createdAt ? user.createdAt|date('d-m-Y') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{{ path('app_admin_profile_show', {'id': user.id}) }}">show</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('app_admin_profile_edit', {'id': user.id}) }}">edit</a>
+                        </td>
+                        <td>
+                            {{ include('admin/user/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="10">Aucun enregistrement trouvé.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

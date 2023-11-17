@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %} Bienvenue sur eComputer - Votre destination pour tous vos besoins informatiques {% endblock
+    %}</title>
+  
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+  <!-- MDB -->
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  {% block stylesheets %}
+	{{ encore_entry_link_tags("app") }}
+  {% endblock %}
+
+
+
+<script src="https://js.stripe.com/v3/"></script>
+
+</head>
+
+<body>
+
+  {% block nav %}
+  
+  <header>
+
+          
+    <nav class="logo">
+      <!-- Navbar1 -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-nav">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+         
+
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="{{path('app_home')}}">
+              <img src="{{ asset('img/ecombg.png')}}" height="50PX" alt="eComputer Logo" loading="lazy" />
+            </a>
+
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                {% if is_granted('ROLE_USER') == false %}
+                <a class="nav-link" href="{{path('app_register')}}">register</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if is_granted('ROLE_USER') == false %}
+                <a class="nav-link" href="{{path('app_login')}}">login</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{path('app_ecoresposable')}}">Eco-responsabilité</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{path('app_produitsdurables')}}">Produits durables</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{path('app_utilisationresponsable')}}">Utilisation responsable</a>
+              </li>
+               <li class="nav-item">
+                <a class="btn btn-success rounded-pill px-3" "nav-link" href="{{path('app_categories_index')}}">Nos produits</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{path('app_contact')}}">contact</a>
+              </li>
+              <li class="nav-item">
+                {% if is_granted('ROLE_ADMIN') %}
+                <a class="nav-link" href="{{path('app_admin_categories_index')}}">loginAdmin</a>
+                {% endif %}
+              </li>
+               <li class="nav-item">
+                {% if is_granted('ROLE_ADMIN')  %}
+                <a class="nav-link" href="{{path('app_admin_produits_index')}}">produits</a>
+                {% endif %}
+              </li>
+            </ul>
+            <!-- Left links -->
+
+            <!-- Search form -->
+
+              <form action="{{ path('app_search') }}" method="GET" class="d-flex mx-2">
+                  <input class="form-control me-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
+                  <button class="btn btn-outline-primary" type="submit">Rechercher</button>
+              </form>
+
+          
+
+            <!-- Search form -->
+          </div>
+          <!-- Collapsible wrapper -->
+
+          <!-- Right elements -->
+          <div class="d-flex align-items-center">
+            <!-- Icon -->
+            <a class="text-reset me-3" href="{{path('app_cart_show')}}">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+
+            <!-- Notifications -->
+
+            <!-- Avatar -->
+            <div class="dropdown">
+              <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
+                role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25"
+                  alt="Black and White Portrait of a Man" loading="lazy" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                <li>
+                  <a class="dropdown-item" href="{{path('app_user_profile_show')}}">Mon profil</a>
+                </li>
+                <li>
+                  {% if is_granted('ROLE_USER') %}
+                  <a class="dropdown-item" href="{{path('app_forgot_password_request')}}">Modifier le mot de passe</a>
+                  {% endif %}
+                </li>
+                <li>
+                  {% if is_granted('ROLE_USER') %}
+                  <a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
+                  {% endif %}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+      <!-- Navbar2 -->
+    </nav>
+
+
+
+  </header>
+  {% endblock %}
+
+
+
+
+  {% if block('carousel') is defined %}
+
+  <div class="container fluid">
+
+    <div id="carouselExampleCrossfade" class="carousel slide carousel-fade carousel-container" data-mdb-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+
+      
+      <div class="carousel-inner">
+        <div class="carousel-item active " >
+          <img src="{{ asset('img/car1.png')}}" class="d-block w-100 h-30" alt="ordinateur" />
+        </div>
+        <div class="carousel-item" "container-fluid">
+          <img src="{{ asset('img/car2.png')}}" class="d-block w-100 h-30" alt="ordinateur"/>
+        </div>
+       <div class="carousel-item">
+          <img src="{{ asset('img/car3.jpg')}}" class="d-block w-100 h-30" alt="ordinateur" />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCrossfade"
+        data-mdb-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCrossfade"
+        data-mdb-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+
+    {% endif %}
+
+      {% block body %}{% endblock %}
+
+
+  </div>
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.js"></script>
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-primary bg-success-subtle ">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block ">
+      <span> Rejoignez-nous sur les réseaux sociaux:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="https://www.facebook.com/profile.php?id=100092422876418" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/AdeiFradei" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.google.com/search?q=adei&stick=H4sIAAAAAAAA_-NgU1I1qDAxTzUzNE41TE6ySDVMTUqzMqiwNDA1sDBPNDRNNDNPSTMxWMTKkpiSmgkAsLJnjzAAAAA&hl=fr&mat=CXIQgckCLmGIElYBpsFAC4Iw5kodPPG6TT9KJv1KERoW7keJB7eBNmAnSCiLPHJLVONuw_mA4XxQL2bgp9SECwhNfTtyI0bjSWu-3rHwRbinqWIl4XrsA6UdRGDO3P3PGw&authuser=2#cobssid=s"
+        class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="https://www.instagram.com/terms/unblock/?next=/api/v1/web/fxcal/ig_sso_users/" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/adei-france-67437b278/" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/hassanKharit/ecomPuters.git" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3 ">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>ADEI ecomputer
+          </h6>
+          <p>
+            Adei eComputer, votre partenaire informatique engagé pour des solutions durables et respectueuses de
+            l'environnement.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            INFORMATION
+          </h6>
+          <p>
+            <a href="{{path('app_fournisseurs')}}" class="text-reset">Fournisseurs</a>
+          </p>
+          <p>
+            <a href="{{path('app_reglement_interieur')}}" class="text-reset">Règlement intérieur</a>
+          </p>
+          <p>
+            <a href="{{path('app_contact')}}" class="text-reset">Nous contacter</a>
+          </p>
+          <p>
+            <a href="{{path('app_cookies')}}" class="text-reset">cookies</a>
+          </p>
+          <p>
+            <a href="{{path('app_cgu')}}" class="text-reset">CGU</a>
+          </p>
+          <p>
+            <a href="{{path('app_cgv')}}" class="text-reset">CGV</a>
+             <p>
+            <a href="{{path('app_faqs')}}" class="text-reset">FAQs</a>
+          </p> 
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+             VOS DEMANDES
+          </h6>
+            <p>
+            <a href="{{path('app_sav')}}" class="text-reset">SAV</a>
+          </p>
+          <p>
+            <a href="{{path('app_commandes_succes')}}" class="text-reset">Commandes</a>
+          </p>
+          <p>
+            <a href="{{path('app_bons_de_reduction')}}" class="text-reset">Bons de reduction</a>
+          </p>
+          <p>
+            <a href="{{path('app_avoirs')}}" class="text-reset">Avoirs</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> Bondy 93140</p>
+         <p>
+            <a href="mailto:contact@adei-france.com">
+              <i class="fas fa-envelope me-3"></i>
+              contact@adei-france.com
+            </a>
+          </p>
+          
+            <a href="tel:+0618622920">
+              <i class="fas fa-phone me-3"></i> +0618622920
+            </a> <br>
+            <a href="tel:+0199622920">
+              <i class="fas fa-phone me-3"></i> +0999622920
+            </a>
+          
+
+
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(67, 181, 233, 0.05);">
+    © 2017 Copyright:
+    <a class="text-reset fw-bold" href="{{ asset('images/ecomputerLogo.png')}}">adei.fr</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+ <script src="{{asset('js/cardHome.js')}}"></script>
+ <script src="{{asset('js/register.js')}}"></script>
+ 
+
+{% block javascripts %}
+	{{ encore_entry_script_tags("app") }}
+	{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitsController!{% endblock %}
+
+{% block body %}
+
+ <h1>Produits index</h1>
+
+ <div class="row">
+    {% for produit in produits %}
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="{{ asset('img/') ~ produit.imagename }}" class="card-img-top" alt="..." style="height: 100px; width: 100px;">
+          <div class="card-body">
+            <h5 class="card-title">{{ produit.titre }}</h5>
+            <p class="card-text">{{ produit.description }}</p>
+            <p class="card-text">{{ produit.prix }}</p>
+            <p class="card-text">{{ produit.imagename }}</p>
+            <a href="{{ path('app_produits_show', {'id': produit.id}) }}" class="btn btn-primary">Voir plus</a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text">Aucun enregistrement trouvé.</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  
+
+    index produit
+
+{% endblock %}
+
+

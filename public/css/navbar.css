@@ -1,0 +1,85 @@
+ @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #eff5e7;
+  padding: 20px;
+}
+
+.bg-nav {
+  /* background: #eff5e7;  */
+}
+
+/* Styles pour la première nav avec la classe "logo" */
+.logo {
+  background-color: #ccc;
+
+  background-color: #eff5e7;
+  padding: 10px;
+  margin: 0px;
+} 
+
+/* Styles pour la deuxième nav avec la classe "category" */
+ .category {
+  background-color: #eff5e7;
+  padding: 10px;
+  margin: 0px;
+  margin-bottom: 20px;
+
+} 
+
+/* Styles pour les liens dans la première nav */
+.nav-link {
+  color: #6f5bb8;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Styles pour les liens dans la deuxième nav */
+.nav-link {
+  background: #eff5e7;
+  color: #708d50;
+  margin-right: 10px;
+}
+
+/* Styles pour les icônes */
+
+.fa-shopping-cart {
+  color: #677deb;
+}
+
+/* Styles pour l'avatar */
+.logo .rounded-circle {
+  height: 25px;
+}
+
+/* Styles pour le formulaire de recherche */
+.logo .form-control {
+  border: none;
+  border-radius: 5px;
+}
+
+/* Styles pour le bouton de recherche */
+.logo .btn-outline-primary {
+  border-radius: 15px;
+}
+
+/* Styles pour les éléments du dropdown */
+.dropdown-item {
+  color: #eca1e2;
+}
+
+/* Styles pour le bouton de déconnexion */
+.logo .dropdown-item:last-child {
+  font-weight: bold;
+}
+
+/* Styles pour le bouton "Toggle" */
+.logo .navbar-toggler {
+  border: none;
+}
+
+/* Styles pour le logo */
+.navbar-brand img {
+  height: 30px;
+} 

@@ -1,0 +1,20 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# config/routes.yaml
+# app_categories_menu_burger:
+#     path: /categories/menu-burger
+#     controller: App\Controller\CategoriesController::menuBurger
+
+admin_dashboard:
+  path: /admin/dashboard
+  controller: App\Controller\AdminController::dashboard
+
+# routes.yaml
+app_search:
+    path: /search
+    controller: App\Controller\SearchController::index
+    methods: [GET]
+
+

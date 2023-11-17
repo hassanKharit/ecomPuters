@@ -1,0 +1,9 @@
+<!-- categories/menu_burger.html.twig -->
+{% for category in categories %}
+    <h3>{{ category.titre }}</h3>
+    <ul>
+        {% for produit in category.produits %}
+            <li>{{ produit.nom }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cat!{% endblock %}
+{% block body %}
+    
+<h1>Categories</h1>
+
+ <div class="container">
+  <div class="row">
+    {% for category in categories %}
+
+    <div class="anim col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ category.titre }}</h5>
+          <p class="card-text">{{ category.description }}</p>
+          <a href="{{ path('app_categories_show', {'id': category.id}) }}" class="btn btn-primary">Voir plus</a>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">Aucun enregistrement trouvé.</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+{% block javascripts %} <script src="{{ asset('js/adminCat.js') }}"></script> {% endblock %}
+
+{% endblock %}

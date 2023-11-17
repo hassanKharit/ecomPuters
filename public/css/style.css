@@ -1,0 +1,84 @@
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .col-lg-4 {
+    width: 33.33%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  .bd-placeholder-img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #101c2a;
+
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1c79eb;
+  }
+
+  .text-muted {
+    color: #d12629;
+    font-size: 16px;
+    font-style: italic;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #8b7ffa;
+    color: #fff;
+  }
+  
+  .btn:hover {
+    background-color: #f7e6e6;
+  }
+
+  .card-hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(199, 184, 184, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  /* produits */
+
+  .card {
+    margin: 20px;
+    padding: 20px;
+    background-color: #badbcf;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(211, 197, 197, 0.1);
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    margin-top: 10px;
+  }
+  
+
+  

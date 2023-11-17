@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eco_Resposable{% endblock %}
+
+{% block body %}
+
+
+  
+
+
+
+  {% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/article.css') }}">
+	{% endblock %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+  <style>
+    .card {
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 20px;
+      background-color: #ffcc00;
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .card-content {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+  </style>
+  <title>Article éco-responsabilité</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center mt-12">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">
+            Eco_Responsable pour toujours
+          </div>
+          <div class="card-content">
+            <p>L'éco-responsabilité est une notion de plus en plus importante dans notre société, et cela s'applique également au domaine de la technologie, y compris aux PC portables. L'éco-responsabilité vise à minimiser l'impact environnemental des produits et des pratiques, en adoptant des solutions durables et respectueuses de l'environnement.</p>
+            <p>Dans le contexte de la vente de PC portables, l'éco-responsabilité consiste à proposer des appareils qui sont conçus de manière écologique, à réduire leur consommation d'énergie, à favoriser leur recyclage et à encourager les pratiques éthiques tout au long de leur cycle de vie. Cela implique de prendre en compte des critères tels que la consommation d'énergie, les matériaux utilisés, les méthodes de fabrication et la gestion des déchets électroniques.</p>
+            <p>En choisissant un PC portable éco-responsable, vous contribuez à la préservation de l'environnement en réduisant votre empreinte carbone. Ces appareils sont souvent plus économes en énergie, ce qui permet de diminuer les émissions de gaz à effet de serre. De plus, ils sont fabriqués avec des matériaux recyclables ou issus de sources durables, ce qui réduit l'exploitation des ressources naturelles.</p>
+            <p>L'éco-responsabilité ne se limite pas seulement à la conception des PC portables, mais englobe également leur utilisation quotidienne. Des conseils pratiques peuvent être donnés aux utilisateurs pour optimiser leur consommation d'énergie, réduire leur utilisation de ressources (comme le papier) et adopter des pratiques de recyclage adéquates pour les batteries et les composants électroniques.</p>
+            <p>En somme, l'éco-responsabilité dans le domaine des PC portables est une démarche nécessaire pour concilier technologie et respect de l'environnement. Enchoisissant des appareils éco-responsables et en adoptant des pratiques durables, nous contribuons à préserver notre planète pour les générations futures.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+{% endblock %}
