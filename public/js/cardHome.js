@@ -1,37 +1,33 @@
-// Sélectionnez tous les éléments de classe "card"
-const cards = document.querySelectorAll('.card');
+window.addEventListener('load', function() {
+  const cards = document.querySelectorAll('.card');
+  let maxHeight = 0;
 
-// Ajoutez un événement de survol à chaque carte
-cards.forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    // Appliquez l'animation au survol
-    card.classList.add('card-hover');
+  // Ajoutez un événement de survol à chaque carte et trouvez la hauteur maximale
+  cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+          card.classList.add('card-hover');
+      });
+
+      card.addEventListener('mouseleave', () => {
+          card.classList.remove('card-hover');
+      });
+
+      if (card.offsetHeight > maxHeight) {
+          maxHeight = card.offsetHeight;
+      }
   });
 
-  card.addEventListener('mouseleave', () => {
-    // Supprimez l'animation lorsque le curseur quitte la carte
-    card.classList.remove('card-hover');
+  // Appliquez la hauteur maximale à toutes les cartes
+  cards.forEach(card => {
+      card.style.height = maxHeight + 'px';
   });
-});
 
-
-
-document.getElementById('registration-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
-
-  // Perform additional validation or AJAX submission if needed
-  // You can access form data using JavaScript DOM API
-
-  // Example AJAX submission using Fetch API
-  var formData = new FormData(this);
-  fetch(this.action, {
-      method: this.method,
-      body: formData
-  })
-  .then(function(response) {
-      // Handle the response from the server
-  })
-  .catch(function(error) {
-      // Handle any error that occurred during the request
-  });
+  // Autre code, par exemple pour le formulaire
+  const form = document.getElementById('registration-form');
+  if(form){
+      form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          // Reste du code pour la gestion du formulaire
+      });
+  }
 });

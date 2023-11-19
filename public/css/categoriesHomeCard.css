@@ -16,4 +16,11 @@
     height: 100%;
     object-fit: cover;
   }
+
+  .card-hover {
+    /* Ajoutez ici les styles pour l'animation de survol */
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
  
