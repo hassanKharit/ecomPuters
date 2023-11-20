@@ -1,3 +1,16 @@
+.custom-alert {
+  color: rgb(180, 210, 187); /* Couleur du texte */
+  background-color: #cbc9e7; /* Couleur de fond */
+  border-color: #b9aaab; /* Couleur de la bordure */
+  padding: .75rem 1.25rem; /* Espacement interne */
+  margin-bottom: 1rem; /* Marge en bas */
+  border: 1px solid transparent; /* Bordure */
+  border-radius: .25rem; /* Arrondi des coins */
+}
+
+
+
+
 /* body {
   background: linear-gradient(45deg, #d1dacc, #d7e4f0);
   font-family: sans-serif;
