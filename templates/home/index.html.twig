@@ -1,38 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ecom-puter{% endblock %}
+{% block title %}Ecom-puter
+{% endblock %}
 
 {% block stylesheets %}
-<!-- Vous pouvez ajouter des styles personnalisés ici si nécessaire -->
+	<!-- Vous pouvez ajouter des styles personnalisés ici si nécessaire -->
 {% endblock %}
 
 {% block javascripts %}
-<!-- Scripts personnalisés si nécessaire -->
+	<!-- Scripts personnalisés si nécessaire -->
 {% endblock %}
 
 {% block carousel %}
-<!-- Contenu du carousel si nécessaire -->
+	<!-- Contenu du carousel si nécessaire -->
 {% endblock %}
 
 {% block body %}
-<div class="container mt-4">
-    <div class="row">
-        {% for categorieHome in categoriesHome %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{{ categorieHome.image }}" class="card-img-top" alt="{{ categorieHome.titre }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ categorieHome.titre }}</h5>
-                        <p class="card-text">{{ categorieHome.description }}</p>
-                        <a href="#" class="btn btn-primary">Voir plus</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
+	<div class="container mt-4">
+		<div class="row">
+			{% for categorieHome in categoriesHome %}
+				<div class="col-md-4 mb-4">
+					<div class="card">
+						<img src="{{ asset('img/') ~ categorieHome.image }}" class="card-img-top" alt="{{ categorieHome.titre }}">
+						<div class="card-body">
+							<h5 class="card-title">{{ categorieHome.titre }}</h5>
+							<p class="card-text">{{ categorieHome.description }}</p>
+							<a href="#" class="btn btn-primary">Voir plus</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}
-
-
-
-

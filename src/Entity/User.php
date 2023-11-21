@@ -44,6 +44,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $avatar;
+
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Commentaires::class)]
     private Collection $commentaires;
 
@@ -52,6 +55,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToMany(mappedBy: 'users', targetEntity: Facture::class)]
     private Collection $factures;
+
+    
 
     public function __construct()
     {
@@ -78,6 +83,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->email = $email;
 
         return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+    return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+    $this->avatar = $avatar;
+
+    return $this;
     }
 
     /**

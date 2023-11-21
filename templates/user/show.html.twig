@@ -7,6 +7,13 @@
         <div class="card-body">
             <h1 class="card-title">Profil de : {{ user.nom }} {{ user.prenom }}</h1>
 
+            {% if user.avatar %}
+                <div class="card mb-4">
+                <img src="{{ asset('img/') ~ user.avatar }}" class="card-img-top" alt="..." style="height: 100px; width: 100px;">
+                <div class="card-body">
+            {% endif %}
+
+            
             <table class="table">
                 <tbody>
                     <tr>

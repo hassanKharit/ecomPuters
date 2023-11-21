@@ -12,13 +12,12 @@
             <h2>Formulaire de Contact</h2>
             {{ form(form) }}
 
-            {% if app.flashes('success')|length > 0 %}
+            {% for message in app.flashes('success') %}
                 <div class="alert alert-success mt-4">
-                    {% for message in app.flashes('success') %}
                         {{ message }}
                     {% endfor %}
                 </div>
-            {% endif %}
+            
         </div>
     </div>
 
