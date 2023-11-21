@@ -1,69 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Détails du produit{% endblock %}
+{% block title %}Détails du produit
+{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Détails du produit</h1>
+	<div class="container">
+		<h1>Détails du produit</h1>
 
-        <div class="row">
-            <div class="col">
-                <table class="card table">
-                    <tbody>
-                        {# <tr>
-                            <th>Id</th>
-                            <td>{{ produit.id }}</td>
-                        </tr> #}
-                        <tr>
-                            <th>Titre</th>
-                            <td>{{ produit.titre }}</td>
-                        </tr>
-                        <tr>
-                            <th>Description</th>
-                            <td>{{ produit.description }}</td>
-                        </tr>
-                        <tr>
-                            <th>Prix</th>
-                            <td>{{ produit.prix }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <a href="{{ path('app_cart_add', {'id': produit.id }) }}">
-                    <button type="button" class="btn btn-primary">Ajouter au panier</button>
-                </a>
-            </div>
-        </div>
 
-        <h1>Commentaires</h1>
-        {% for uncommentaire in les_commentaires %}
-            <div class="card my-3">
-                <div class="card-body">
-                    <h5 class="card-title">Id: {{ uncommentaire.id }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Titre: {{ uncommentaire.titre }}</h6>
-                    <p class="card-text">Description: {{ uncommentaire.description }}</p>
-                    <p class="card-text">Écrit par: {{ uncommentaire.user.nom }} {{ uncommentaire.user.prenom }}</p>
-                    <p class="card-text">Date de création: {{ uncommentaire.createdAt ? uncommentaire.createdAt|date('d-m-Y H:i:s') : '' }}</p>
-                </div>
-            </div>
-        {% endfor %}
 
-        {% if is_granted('ROLE_USER') %}
-            <h1>Ajouter un commentaire</h1>
-            <div class="card">
-                <div class="card-body">
-                    {{ form_start(form) }}
-                    <div class="mb-3">
-                        {{ form_label(form.titre, 'Titre') }}
-                        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <div class="mb-3">
-                        {{ form_label(form.description, 'Description') }}
-                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                    <button class="btn btn-primary">{{ button_label|default('Enregistrer le commentaire') }}</button>
-                    {{ form_end(form) }}
-                </div>
-            </div>
-        {% endif %}
-    </div>
+		<div class="card mb-4">
+			<img src="{{ asset('img/') ~ produit.imagename }}" class="card-img-top" alt="..." style="height: 100px; width: 100px;">
+			<div class="card-body">
+				<h5 class="card-title">{{ produit.titre }}</h5>
+				<p class="card-text">{{ produit.description }}</p>
+				<p class="card-text">{{ produit.prix }}</p>
+				<p class="card-text">{{ produit.imagename }}</p>
+				<a href="{{ path('app_produits_show', {'id': produit.id}) }}" class="btn btn-primary">Voir plus</a>
+			</div>
+		</div>
+
+
+		<h1>Commentaires</h1>
+		{% for uncommentaire in les_commentaires %}
+			<div class="card my-3">
+				<div class="card-body">
+					<h5 class="card-title">Id:
+						{{ uncommentaire.id }}</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Titre:
+						{{ uncommentaire.titre }}</h6>
+					<p class="card-text">Description:
+						{{ uncommentaire.description }}</p>
+					<p class="card-text">Écrit par:
+						{{ uncommentaire.user.nom }}
+						{{ uncommentaire.user.prenom }}</p>
+					<p class="card-text">Date de création:
+						{{ uncommentaire.createdAt ? uncommentaire.createdAt|date('d-m-Y H:i:s') : '' }}</p>
+				</div>
+			</div>
+		{% endfor %}
+
+		{% if is_granted('ROLE_USER') %}
+			<h1>Ajouter un commentaire</h1>
+			<div class="card">
+				<div class="card-body">
+					{{ form_start(form) }}
+					<div class="mb-3">
+						{{ form_label(form.titre, 'Titre') }}
+						{{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+					</div>
+					<div class="mb-3">
+						{{ form_label(form.description, 'Description') }}
+						{{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+					</div>
+					<button class="btn btn-primary">{{ button_label|default('Enregistrer le commentaire') }}</button>
+					{{ form_end(form) }}
+				</div>
+			</div>
+		{% endif %}
+	</div>
 {% endblock %}

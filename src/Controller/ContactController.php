@@ -17,13 +17,13 @@ class ContactController extends AbstractController
     public function index(Request $request, EntityManagerInterface $manager, MailService $mailService): Response
     {
 
-       
+    
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if($form->isSubmitted()&&$form->isValid())
-       
+
 
         {
             $contact=$form->getData();
@@ -52,10 +52,10 @@ class ContactController extends AbstractController
                 
             );
             
-                  $this->addFlash(
-                      'success',
-                      'Votre demande a été envoyé avec succès !',
-                  );
+                    $this->addFlash(
+                        'success',
+                        'Votre demande a été envoyé avec succès !',
+                    );
 
 
         }

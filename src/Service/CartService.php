@@ -37,12 +37,12 @@ class CartService {
         // [7]=>1
         $this->session->getSession()->set("panier",$panier);
 
-  
+
     }
 
 
 
- public function show() {
+public function show() {
 
             //get pour recuperer la session
         // dd($session->getSession()->get("panier"));
@@ -56,7 +56,7 @@ class CartService {
         // du panier
         // clé de 7 sa valeur est la quantité
         if (!empty($panier)){
-         foreach ($panier as $key => $value){
+        foreach ($panier as $key => $value){
             $Produits_encours= $this->ProduitsRepository->find($key);
 
 
@@ -66,13 +66,13 @@ class CartService {
                 'total'=>($Produits_encours->getPrix()*$value),
                 ];
                 // accumule la variable total avec chacun des prix
-             
+            
         }
     }
 
         return $panier_complet; 
 
- }
+    }
 
     public function getTotalAll(){
         // on recupere le panier en session
@@ -82,10 +82,10 @@ class CartService {
         foreach ($panier as $key => $value  ){
             // total accumule précedent + prix du Produits en cours * quantité
             $total=  $total + ($this->ProduitsRepository->find($key)->getPrix()*$value);
-  
+
                 
                 // accumule la variable total avec chacun des prix
-             
+            
         }
     }
         return $total;
@@ -94,7 +94,7 @@ class CartService {
 
     public function clear(){
          // remove pour vider la session
-         $this->session->getSession()->remove("panier");
+        $this->session->getSession()->remove("panier");
 
 
     }

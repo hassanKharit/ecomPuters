@@ -52,7 +52,7 @@
             aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
           </button>
-         
+        
 
           <!-- Collapsible wrapper -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -82,7 +82,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{path('app_utilisationresponsable')}}">Utilisation responsable</a>
               </li>
-               <li class="nav-item">
+                <li class="nav-item">
                 <a class="btn btn-success rounded-pill px-3" "nav-link" href="{{path('app_categories_index')}}">Nos produits</a>
               </li>
               <li class="nav-item">
@@ -93,7 +93,7 @@
                 <a class="nav-link" href="{{path('app_admin_categories_index')}}">loginAdmin</a>
                 {% endif %}
               </li>
-               <li class="nav-item">
+                <li class="nav-item">
                 {% if is_granted('ROLE_ADMIN')  %}
                 <a class="nav-link" href="{{path('app_admin_produits_index')}}">produits</a>
                 {% endif %}
@@ -185,7 +185,7 @@
         <div class="carousel-item" "container-fluid">
           <img src="{{ asset('img/car2.png')}}" class="d-block w-100 h-30" alt="ordinateur"/>
         </div>
-       <div class="carousel-item">
+        <div class="carousel-item">
           <img src="{{ asset('img/car3.jpg')}}" class="d-block w-100 h-30" alt="ordinateur" />
         </div>
       </div>

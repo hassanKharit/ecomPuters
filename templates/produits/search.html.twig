@@ -24,7 +24,7 @@
                         <ul class="list-group">
                             {% for search in resultats %}
                                 <li class="list-group-item">
-                                    <a href="{{ path('app_produits_show', { 'id': search.id }) }}">{{ search.titre }}</a>
+                                    <a href="{{ path('app_produits_show', { 'id': search.id }) }}">{{ search.titre }} </a>
                                 </li>
                             {% endfor %}
                         </ul>
