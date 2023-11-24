@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Facture;
+use App\Entity\Commentaires;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -85,17 +87,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getAvatar(): ?string
-    {
-    return $this->avatar;
-    }
-
-    public function setAvatar(?string $avatar): self
-    {
-    $this->avatar = $avatar;
-
-    return $this;
-    }
+   
 
     /**
      * A visual identifier that represents this user.
@@ -299,6 +291,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+    public function getAvatar(): ?string
+    {
+    return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+    $this->avatar = $avatar;
+
+    return $this;
     }
 
 }

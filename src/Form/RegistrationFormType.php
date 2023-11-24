@@ -37,7 +37,6 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Merci de saisir votre prénom',
                 ],
             ])
-
             ->add('prenom', type: TextType::class, options: [
                 'label' => 'votre nom',
                 'constraints' => [

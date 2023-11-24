@@ -1,4 +1,29 @@
-<h1>Hi! Please confirm your email!</h1>
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de l'adresse e-mail{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Confirmation de l'adresse e-mail</h2>
+            {# Vous pouvez personnaliser cette page pour afficher un message de confirmation #}
+            <p>Merci de cliquer sur le lien de confirmation envoyé à votre adresse e-mail pour activer votre compte.</p>
+            <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
+    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+{# <h1>Hi! Please confirm your email!</h1>
 
 <p>
     Please confirm your email address by clicking the following link: <br><br>
@@ -8,4 +33,4 @@
 
 <p>
     Cheers!
-</p>
+</p> #}

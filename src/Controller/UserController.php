@@ -9,9 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 #[Route('/profile')]
 class UserController extends AbstractController
@@ -22,6 +20,7 @@ class UserController extends AbstractController
         $monuser = $this->getUser();
         return $this->render('user/show.html.twig', [
             'user' => $monuser,
+            
         ]);
     }
 
