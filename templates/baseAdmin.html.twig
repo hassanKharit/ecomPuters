@@ -1,57 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
-  <title>{% block title %}Document{% endblock %}</title>
-  {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Lien vers votre CSS personnalisé pour le tableau de bord -->
+    <link rel="stylesheet" href="{{ asset('css/adminDashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <title>{% block title %}Tableau de bord{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 </head>
 <body>
 
-
-
 <main class="main">
-  <aside class="sidebar">
-    <nav class="nav">
-      <ul>
+    <aside class="sidebar">
+        <nav class="nav">
+            <ul>
                 <li>
-                {% if is_granted('ROLE_USER') %}
-                  <a class="dropdown-item" href="{{path('app_forgot_password_request')}}">Modifier le mot de passe</a>
-                  {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        <a class="dropdown-item" href="{{ path('app_forgot_password_request') }}">Modifier le mot de passe</a>
+                    {% endif %}
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
+                    <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
                 </li>
-        <li class="active"><a href="{{path('app_admin_profiles_index')}}">Utilisateurs</a></li>
-        <li class="active"><a href="{{path('app_admin_produits_index')}}">Produits</a></li>
-        <li class="active"><a href="{{path('app_admin_categories_home_index')}}">CategoriesHome</a></li>
-        <li><a href="{{path('app_home')}}">Home</a></li>
-        <li><a href="#">Get In Touch</a></li>
-      </ul>
-    </nav>
-  </aside>
+                <li class="active"><a href="{{ path('app_admin_profiles_index') }}">Utilisateurs</a></li>
+                <li class="active"><a href="{{ path('app_admin_produits_index') }}">Produits</a></li>
+                <li class="active"><a href="{{ path('app_admin_categories_home_index') }}">Catégories</a></li>
+                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-  <section class="contenu">
-    <div class="container">
-
-{% block body %}{% endblock %}
-
-</div>
-</section>
+    <section class="contenu">
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+    </section>
 </main>
 
-
-
 {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
 </body>
 </html>
-
-
-
-
