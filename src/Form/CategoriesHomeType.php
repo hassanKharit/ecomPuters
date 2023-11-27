@@ -18,19 +18,20 @@ class CategoriesHomeType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Choissiez une image pour votre produit',
 
-                // unmapped means that this field is not associated to any entity property
+                // il ne sera pas lier a la base de données donc:( 'mapped': false)
                 'mapped' => false,
 
                 // make it optional so you don't have to re-upload the PDF file
                 // every time you edit the Product details
+                // 'multiple' => true, (si tu veut injecter plusieur images)
                 'required' => false,
 
                 // unmapped fields can't define their validation using annotations
                 // in the associated entity, so you can use the PHP constraint classes
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024k',
-                        'mimeTypesMessage' => 'Attention ne pas dépasser 1024k',
+                        'maxSize' => '2048k',
+                        'mimeTypesMessage' => 'Attention ne pas dépasser 2048k',
                     ])
                 ],
             ])

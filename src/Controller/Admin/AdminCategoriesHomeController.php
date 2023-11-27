@@ -64,12 +64,27 @@ class AdminCategoriesHomeController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_categories_home_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, CategoriesHome $categoriesHome, CategoriesHomeRepository $categoriesHomeRepository): Response
+    public function edit(Request $request, CategoriesHome $categoriesHome, CategoriesHomeRepository $categoriesHomeRepository, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(CategoriesHomeType::class, $categoriesHome);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+             // on recupere l'image issue du formulaire
+            // "image" est le nom de notre image dans le form
+            $imageCategoriesHome = $form->get('image')->getData();
+            // dd($imageproduit);
+
+            // le cas ou l'image a été posté
+            if ($imageCategoriesHome) {
+                // on utilise le service fileUploader
+                // pour envoyé l'image dans le public/img
+                $imageCategoriesHome_nom = $fileUploader->upload($imageCategoriesHome);
+                
+                // envoyé dans l'entité le nom de l'image
+                $categoriesHome->setImage($imageCategoriesHome_nom);
+            }
+
             $categoriesHomeRepository->save($categoriesHome, true);
 
             return $this->redirectToRoute('app_admin_categories_home_index', [], Response::HTTP_SEE_OTHER);
